@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static final String WEEK_3_APP = "WEEK3APP";
     Button button;
     Button buttonReset;
     EditText maker;
@@ -23,50 +24,50 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        Log.d("WEEK3APP", "onStart");
+        Log.d(WEEK_3_APP, "onStart");
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        Log.d("WEEK3APP", "onStop");
+        Log.d(WEEK_3_APP, "onStop");
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.d("WEEK3APP", "onDestroy");
+        Log.d(WEEK_3_APP, "onDestroy");
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        Log.d("WEEK3APP", "onPause");
+        Log.d(WEEK_3_APP, "onPause");
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        Log.d("WEEK3APP", "onResume");
+        Log.d(WEEK_3_APP, "onResume");
     }
 
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        Log.d("WEEK3APP", "onSaveInstanceState");
+        Log.d(WEEK_3_APP, "onSaveInstanceState");
     }
 
     @Override
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        Log.d("WEEK3APP", "onRestoreInstanceState");
+        Log.d(WEEK_3_APP, "onRestoreInstanceState");
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.d("WEEK3APP", "onCreate");
+        Log.d(WEEK_3_APP, "onCreate");
 
         Context context = getApplicationContext();
 

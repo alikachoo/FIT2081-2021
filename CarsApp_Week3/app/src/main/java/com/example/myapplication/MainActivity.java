@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -20,9 +21,53 @@ public class MainActivity extends AppCompatActivity {
     // Testing github
 
     @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d("WEEK3APP", "onStart");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d("WEEK3APP", "onStop");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d("WEEK3APP", "onDestroy");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d("WEEK3APP", "onPause");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("WEEK3APP", "onResume");
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Log.d("WEEK3APP", "onSaveInstanceState");
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        Log.d("WEEK3APP", "onRestoreInstanceState");
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Log.d("WEEK3APP", "onCreate");
+
         Context context = getApplicationContext();
 
         button = findViewById(R.id.btn_addNewCar);
@@ -65,5 +110,12 @@ public class MainActivity extends AppCompatActivity {
                 toast.show();
             }
         });
+
+
+
     }
+
+
+
+
 }

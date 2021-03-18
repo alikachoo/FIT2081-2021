@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="730c217d-f81f-4bab-8e3a-4f6d4a9a3451" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/CarsApp_Week3/app/src/main/java/com/example/myapplication/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarsApp_Week3/app/src/main/java/com/example/myapplication/MainActivity.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1poqPU9H8KzxBHDu5gHzBkl0TWM" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="730c217d-f81f-4bab-8e3a-4f6d4a9a3451" name="Default Changelist" comment="" />
+      <created>1615859766899</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1615859766899</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="244" y="137" key="#Project_Structure" timestamp="1615859786171">
+      <screen x="0" y="25" width="1920" height="966" />
+    </state>
+    <state x="244" y="137" key="#Project_Structure/1920.123.1440.875/0.25.1920.966@0.25.1920.966" timestamp="1615859786171" />
+    <state x="65" y="25" key="SettingsEditor" timestamp="1615860052567">
+      <screen x="0" y="25" width="1920" height="966" />
+    </state>
+    <state x="65" y="25" key="SettingsEditor/1920.123.1440.875/0.25.1920.966@0.25.1920.966" timestamp="1615860052567" />
+    <state x="111" y="233" key="search.everywhere.popup" timestamp="1615860244848">
+      <screen x="0" y="25" width="1920" height="966" />
+    </state>
+    <state x="111" y="233" key="search.everywhere.popup/1920.123.1440.875/0.25.1920.966@0.25.1920.966" timestamp="1615860244848" />
+  </component>
+</project>

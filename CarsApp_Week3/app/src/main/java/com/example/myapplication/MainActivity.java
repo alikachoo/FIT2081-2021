@@ -14,7 +14,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-
+    public static final String carMakerFile = "carMakerFile";
+    public static final String LOAD_MAKER_KEY = "LOAD_MAKER_KEY";
     public static final String WEEK_3_APP = "WEEK3APP";
     public static final String MAKER_KEY = "MAKER_KEY";
     public static final String MODEL_KEY = "MODEL_KEY";
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String ADDRESS_KEY = "ADDRESS_KEY";
     Button button;
     Button buttonReset;
+    Button buttonLoad;
     EditText maker;
     EditText model;
     EditText year;
@@ -38,7 +40,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+
         SharedPreferences sP=getPreferences(0);
+
         String makerData = sP.getString(MAKER_KEY, "");
         String modelData = sP.getString(MODEL_KEY, "");
         String yearData = sP.getString(YEAR_KEY, "");
@@ -54,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
         seats.setText(seatsData);
         price.setText(priceData);
         address.setText(addressData);
+
         Log.d(WEEK_3_APP, "onStart");
     }
 
@@ -80,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
         editor.putString(PRICE_KEY, priceData);
         editor.putString(ADDRESS_KEY, addressData);
         editor.apply();
+
         Log.d(WEEK_3_APP, "onStop");
     }
 
@@ -132,6 +138,7 @@ public class MainActivity extends AppCompatActivity {
 
         button = findViewById(R.id.btn_addNewCar);
         buttonReset = findViewById(R.id.btn_reset);
+        buttonLoad = findViewById(R.id.btn_load);
         maker = (EditText) findViewById(R.id.makerInput);
 
 
@@ -144,6 +151,12 @@ public class MainActivity extends AppCompatActivity {
                 String result = "We added a new car (" + makerInput + ")";
                 Toast toast = Toast.makeText(context, result, Toast.LENGTH_SHORT);
                 toast.show();
+
+                // Extra Lab Task Week 3 Question 2:
+                SharedPreferences spMaker = getSharedPreferences(carMakerFile, 0);
+                SharedPreferences.Editor ed = spMaker.edit();
+                ed.putString(LOAD_MAKER_KEY,makerInput);
+                ed.apply();
             }
         });
 
@@ -164,7 +177,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
+        buttonLoad.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPreferences sP=getSharedPreferences(carMakerFile,0);
+                String makerData = sP.getString(LOAD_MAKER_KEY, "");
+                maker.setText(makerData);
+                Toast toast = Toast.makeText(context, "Load successful", Toast.LENGTH_SHORT);
+                toast.show();
+            }
+        });
 
     }
 

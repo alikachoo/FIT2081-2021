@@ -162,7 +162,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case "-":
                     CURRENT_ACTION = SUBTRACTION;
-                    resultScreen.setText(decimalFormat.format(valueOne+valueTwo) + "+" + decimalFormat.format(valueTwo) + " = " + decimalFormat.format(valueOne));
+                    resultScreen.setText(decimalFormat.format(valueOne+valueTwo) + "-" + decimalFormat.format(valueTwo) + " = " + decimalFormat.format(valueOne));
                     interScreen.setText("");
                     break;
                 case "":

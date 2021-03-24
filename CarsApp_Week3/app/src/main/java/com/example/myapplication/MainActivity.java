@@ -14,8 +14,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    public static final String carMakerFile = "carMakerFile";
-    public static final String LOAD_MAKER_KEY = "LOAD_MAKER_KEY";
+    // Lab extra tasks
+    public static final String carMakerFile = "carMakerFile"; // File name
+    public static final String LOAD_MAKER_KEY = "LOAD_MAKER_KEY"; // Key for
+
     public static final String WEEK_3_APP = "WEEK3APP";
     public static final String MAKER_KEY = "MAKER_KEY";
     public static final String MODEL_KEY = "MODEL_KEY";
@@ -112,6 +114,13 @@ public class MainActivity extends AppCompatActivity {
         super.onSaveInstanceState(outState);
         Log.d(WEEK_3_APP, "onSaveInstanceState");
     }
+
+    // Week 3 Lab Task (1)
+//    @Override
+//    protected void onSaveInstanceState(@NonNull Bundle outState) {
+//        // Simply don't call the super
+//        Log.d(WEEK_3_APP, "onSaveInstanceState");
+//    }
 
     @Override
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {

@@ -83,7 +83,8 @@ public class MainActivity extends AppCompatActivity {
         } else {
             valueOne = Double.parseDouble(interScreen.getText().toString());
             valueOne = valueOne*valueOne;
-            resultScreen.setText(interScreen.getText().toString() + "²" + " = " + decimalFormat.format(valueOne));
+            // interScreen.getText().toString() + "²" + " = " +
+            resultScreen.setText(decimalFormat.format(valueOne));
             interScreen.setText("");
             valueOne = Double.NaN;
         }

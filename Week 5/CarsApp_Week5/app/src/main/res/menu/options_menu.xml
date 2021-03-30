@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/add_car" android:title="Add Car">
-    </item>
-
-    <item android:id="@+id/remove_last_car" android:title="Remove Last Car">
-    </item>
-
-    <item android:id="@+id/remove_all_cars" android:title="Remove All Cars">
+    <item android:id="@+id/clear_fields" android:title="@string/clear_fields">
     </item>
 </menu>

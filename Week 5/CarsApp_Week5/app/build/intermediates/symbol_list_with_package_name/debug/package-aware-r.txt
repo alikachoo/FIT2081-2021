@@ -1753,6 +1753,7 @@ id action_text
 id actions
 id activity_chooser_view_content
 id add
+id add_car
 id address
 id addressInput
 id alertTitle
@@ -1835,6 +1836,7 @@ id dragLeft
 id dragRight
 id dragStart
 id dragUp
+id drawer_layout
 id dropdown_menu
 id easeIn
 id easeInOut
@@ -1954,6 +1956,7 @@ id mtrl_picker_text_input_range_start
 id mtrl_picker_title_text
 id mtrl_view_tag_bottom_padding
 id multiply
+id nav_view
 id navigation_header_container
 id never
 id noScroll
@@ -1987,6 +1990,8 @@ id progress_horizontal
 id radio
 id ratio
 id rectangles
+id remove_all_cars
+id remove_last_car
 id reverseSawtooth
 id right
 id rightToLeft
@@ -2188,6 +2193,7 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
+layout drawer_layout
 layout material_chip_input_combo
 layout material_clock_display
 layout material_clock_display_divider
@@ -2254,6 +2260,7 @@ layout text_view_with_line_height_from_layout
 layout text_view_with_line_height_from_style
 layout text_view_with_theme_line_height
 layout text_view_without_line_height
+menu nav_menu
 menu options_menu
 mipmap ic_launcher
 mipmap ic_launcher_round

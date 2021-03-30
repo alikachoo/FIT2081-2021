@@ -12,6 +12,8 @@ import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -44,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     EditText price;
     EditText address;
 
-    // Testing github
+    Context self;
 
     @Override
     protected void onStart() {
@@ -122,13 +124,6 @@ public class MainActivity extends AppCompatActivity {
         Log.d(WEEK_3_APP, "onSaveInstanceState");
     }
 
-    // Week 3 Lab Task (1)
-//    @Override
-//    protected void onSaveInstanceState(@NonNull Bundle outState) {
-//        // Simply don't call the super
-//        Log.d(WEEK_3_APP, "onSaveInstanceState");
-//    }
-
     @Override
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
@@ -136,7 +131,34 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        switch (id) {
+            case R.id.clear_fields:
+                maker.setText("");
+                model.setText("");
+                year.setText("");
+                color.setText("");
+                seats.setText("");
+                price.setText("");
+                address.setText("");
+
+                Toast toast = Toast.makeText(self, "Reset successful!", Toast.LENGTH_SHORT);
+                toast.show();
+                break;
+        }
+        return true;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.options_menu, menu);
+        return true;
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
+        self = this;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -157,58 +179,53 @@ public class MainActivity extends AppCompatActivity {
 
         Context context = getApplicationContext();
 
-        button = findViewById(R.id.btn_addNewCar);
-        buttonReset = findViewById(R.id.btn_reset);
-        buttonLoad = findViewById(R.id.btn_load);
         maker = (EditText) findViewById(R.id.makerInput);
-
-
-        button.setOnClickListener(new View.OnClickListener() {
-            // Test
-            /* Test Test*/
-            @Override
-            public void onClick(View v) {
-                String makerInput = maker.getText().toString();
-                String result = "We added a new car (" + makerInput + ")";
-                Toast toast = Toast.makeText(context, result, Toast.LENGTH_SHORT);
-                toast.show();
-
-                // Extra Lab Task Week 3 Question 2:
-                SharedPreferences spMaker = getSharedPreferences(carMakerFile, 0);
-                SharedPreferences.Editor ed = spMaker.edit();
-                ed.putString(LOAD_MAKER_KEY,makerInput);
-                ed.apply();
-            }
-        });
-
-        buttonReset.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                maker.setText("");
-                model.setText("");
-                year.setText("");
-                color.setText("");
-                seats.setText("");
-                price.setText("");
-                address.setText("");
-
-                Toast toast = Toast.makeText(context, "Reset successful!", Toast.LENGTH_SHORT);
-                toast.show();
-            }
-        });
-
-        buttonLoad.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                SharedPreferences sP=getSharedPreferences(carMakerFile,0);
-                String makerData = sP.getString(LOAD_MAKER_KEY, "");
-                maker.setText(makerData);
-                Toast toast = Toast.makeText(context, "Load successful", Toast.LENGTH_SHORT);
-                toast.show();
-            }
-        });
-
+// Previous workshop buttons
+//        button.setOnClickListener(new View.OnClickListener() {
+//            // Test
+//            /* Test Test*/
+//            @Override
+//            public void onClick(View v) {
+//                String makerInput = maker.getText().toString();
+//                String result = "We added a new car (" + makerInput + ")";
+//                Toast toast = Toast.makeText(context, result, Toast.LENGTH_SHORT);
+//                toast.show();
+//
+//                // Extra Lab Task Week 3 Question 2:
+//                SharedPreferences spMaker = getSharedPreferences(carMakerFile, 0);
+//                SharedPreferences.Editor ed = spMaker.edit();
+//                ed.putString(LOAD_MAKER_KEY,makerInput);
+//                ed.apply();
+//            }
+//        });
+//
+//        buttonReset.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                maker.setText("");
+//                model.setText("");
+//                year.setText("");
+//                color.setText("");
+//                seats.setText("");
+//                price.setText("");
+//                address.setText("");
+//
+//                Toast toast = Toast.makeText(self, "Reset successful!", Toast.LENGTH_SHORT);
+//                toast.show();
+//            }
+//        });
+//
+//        buttonLoad.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                SharedPreferences sP=getSharedPreferences(carMakerFile,0);
+//                String makerData = sP.getString(LOAD_MAKER_KEY, "");
+//                maker.setText(makerData);
+//                Toast toast = Toast.makeText(context, "Load successful", Toast.LENGTH_SHORT);
+//                toast.show();
+//            }
+//        });
     }
 
     class MyBroadCastReceiver extends BroadcastReceiver {

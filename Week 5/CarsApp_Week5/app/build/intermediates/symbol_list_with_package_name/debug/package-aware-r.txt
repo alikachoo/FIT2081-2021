@@ -1774,9 +1774,6 @@ id beginning
 id blocking
 id bottom
 id bounce
-id btn_addNewCar
-id btn_load
-id btn_reset
 id buttonPanel
 id cache_measures
 id cancel_button
@@ -1794,6 +1791,7 @@ id chip3
 id chip_group
 id chronometer
 id circle_center
+id clear_fields
 id clear_text
 id clip_horizontal
 id clip_vertical
@@ -1880,7 +1878,6 @@ id ifRoom
 id ignore
 id ignoreRequest
 id image
-id imageView
 id info
 id invisible
 id inward
@@ -2257,6 +2254,7 @@ layout text_view_with_line_height_from_layout
 layout text_view_with_line_height_from_style
 layout text_view_with_theme_line_height
 layout text_view_without_line_height
+menu options_menu
 mipmap ic_launcher
 mipmap ic_launcher_round
 plurals mtrl_badge_content_description
@@ -2295,6 +2293,7 @@ string character_counter_content_description
 string character_counter_overflowed_content_description
 string character_counter_pattern
 string chip_text
+string clear_fields
 string clear_text_end_icon_content_description
 string error_icon_content_description
 string exposed_dropdown_menu_content_description

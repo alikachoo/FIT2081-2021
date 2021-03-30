@@ -25,7 +25,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.StringTokenizer;
@@ -68,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        self = this;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.drawer_layout);
 
@@ -77,15 +80,46 @@ public class MainActivity extends AppCompatActivity {
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, cars);
         listCars.setAdapter(adapter);
 
+
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         drawerLayout = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.nav_open, R.string.nav_close);
 
-        drawerLayout.addDrawerListener(toggle);
-        toggle.syncState();
+        drawerLayout.addDrawerListener(toggle); // Links toolbar and drawerLayout together
+        toggle.syncState();  // Since state between two elements
         navigationView=findViewById(R.id.nav_view);
+
+        // FAB
+        FloatingActionButton FAB_ADD = findViewById(R.id.FAB_ADD);
+
+        FAB_ADD.setOnClickListener((view -> {
+            String res = "";
+            String makerInput = maker.getText().toString();
+            String modelInput = model.getText().toString();
+            res = makerInput + " | " + modelInput;
+            cars.add(res);
+            adapter.notifyDataSetChanged();
+            Toast toast = Toast.makeText(self, "Added new car!", Toast.LENGTH_SHORT);
+            toast.show();
+            Snackbar.make(view, "replace with your own action"
+                    ,Snackbar.LENGTH_LONG).setAction("Action", null).show();
+        }));
+
+        FAB_ADD.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String res = "";
+                String makerInput = maker.getText().toString();
+                String modelInput = model.getText().toString();
+                res = makerInput + " | " + modelInput;
+                cars.add(res);
+                adapter.notifyDataSetChanged();
+                Toast toast = Toast.makeText(self, "Added new car!", Toast.LENGTH_SHORT);
+                toast.show();
+            }
+        });
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -96,14 +130,25 @@ public class MainActivity extends AppCompatActivity {
                             String res = "";
                             String makerInput = maker.getText().toString();
                             String modelInput = model.getText().toString();
-                            res = makerInput + "|" + modelInput;
+                            res = makerInput + " | " + modelInput;
                             cars.add(res);
+                            adapter.notifyDataSetChanged();
+                            Toast toast = Toast.makeText(self, "Added new car!", Toast.LENGTH_SHORT);
+                            toast.show();
                         break;
                     case R.id.remove_last_car:
-
+                        if (cars.size() > 0) {
+                            cars.remove(cars.size()-1);
+                            adapter.notifyDataSetChanged();
+                            Toast toastLast = Toast.makeText(self, "Removed the last car!", Toast.LENGTH_SHORT);
+                            toastLast.show();
+                        }
                         break;
                     case R.id.remove_all_cars:
-
+                        cars.clear();
+                        adapter.notifyDataSetChanged();
+                        Toast toastAll = Toast.makeText(self, "Removed all cars successfully!", Toast.LENGTH_SHORT);
+                        toastAll.show();
                         break;
                 }
                 return false;

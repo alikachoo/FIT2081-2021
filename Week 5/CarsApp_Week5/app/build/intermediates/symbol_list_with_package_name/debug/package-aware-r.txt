@@ -1896,6 +1896,7 @@ id leftToRight
 id line1
 id line3
 id linear
+id listCars
 id listMode
 id list_item
 id makerInput
@@ -2361,6 +2362,8 @@ string mtrl_picker_toggle_to_calendar_input_mode
 string mtrl_picker_toggle_to_day_selection
 string mtrl_picker_toggle_to_text_input_mode
 string mtrl_picker_toggle_to_year_selection
+string nav_close
+string nav_open
 string password_toggle_content_description
 string path_password_eye
 string path_password_eye_mask_strike_through

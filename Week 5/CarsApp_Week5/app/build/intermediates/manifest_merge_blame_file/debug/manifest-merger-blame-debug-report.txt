@@ -33,8 +33,8 @@
 20        android:extractNativeLibs="false"
 21        android:icon="@mipmap/ic_launcher"
 21-->/Users/Alika/Documents/GitHub/FIT2081/Week 5/CarsApp_Week5/app/src/main/AndroidManifest.xml:12:9-43
-22        android:label="CarsApp_Week4_Task3"
-22-->/Users/Alika/Documents/GitHub/FIT2081/Week 5/CarsApp_Week5/app/src/main/AndroidManifest.xml:13:9-44
+22        android:label="Cars App Week 5"
+22-->/Users/Alika/Documents/GitHub/FIT2081/Week 5/CarsApp_Week5/app/src/main/AndroidManifest.xml:13:9-40
 23        android:roundIcon="@mipmap/ic_launcher_round"
 23-->/Users/Alika/Documents/GitHub/FIT2081/Week 5/CarsApp_Week5/app/src/main/AndroidManifest.xml:14:9-54
 24        android:supportsRtl="true"

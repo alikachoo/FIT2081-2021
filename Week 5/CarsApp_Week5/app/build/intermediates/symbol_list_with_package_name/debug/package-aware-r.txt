@@ -1798,6 +1798,7 @@ id clear_text
 id clip_horizontal
 id clip_vertical
 id clockwise
+id close
 id collapseActionView
 id colorInput
 id colorText
@@ -2096,6 +2097,7 @@ id toggle
 id toolbar
 id top
 id topPanel
+id total_cars
 id touch_outside
 id transitionToEnd
 id transitionToStart

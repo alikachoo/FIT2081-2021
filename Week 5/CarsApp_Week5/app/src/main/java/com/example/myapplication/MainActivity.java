@@ -150,6 +150,9 @@ public class MainActivity extends AppCompatActivity {
                         Toast toastAll = Toast.makeText(self, "Removed all cars successfully!", Toast.LENGTH_SHORT);
                         toastAll.show();
                         break;
+                    case R.id.close:
+                        finish();
+                        break;
                 }
                 return false;
             }
@@ -318,6 +321,11 @@ public class MainActivity extends AppCompatActivity {
 
                 Toast toast = Toast.makeText(self, "Reset successful!", Toast.LENGTH_SHORT);
                 toast.show();
+                break;
+            case R.id.total_cars:
+                String print_mes = "Total Cars: " + String.valueOf(cars.size());
+                Toast toastTotalCars = Toast.makeText(self, print_mes, Toast.LENGTH_SHORT);
+                toastTotalCars.show();
                 break;
         }
         return true;

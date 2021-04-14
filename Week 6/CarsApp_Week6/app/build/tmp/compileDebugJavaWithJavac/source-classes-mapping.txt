@@ -1,0 +1,17 @@
+com/example/myapplication/SMSReceiver.java
+ com.example.myapplication.SMSReceiver
+com/example/myapplication/BuildConfig.java
+ com.example.myapplication.BuildConfig
+com/example/myapplication/MyW6Adapter.java
+ com.example.myapplication.MyW6Adapter
+ com.example.myapplication.MyW6Adapter$ViewHolder
+com/example/myapplication/Car.java
+ com.example.myapplication.Car
+com/example/myapplication/RecyclerViewActivity.java
+ com.example.myapplication.RecyclerViewActivity
+ com.example.myapplication.RecyclerViewActivity$1
+com/example/myapplication/MainActivity.java
+ com.example.myapplication.MainActivity
+ com.example.myapplication.MainActivity$1
+ com.example.myapplication.MainActivity$2
+ com.example.myapplication.MainActivity$MyBroadCastReceiver

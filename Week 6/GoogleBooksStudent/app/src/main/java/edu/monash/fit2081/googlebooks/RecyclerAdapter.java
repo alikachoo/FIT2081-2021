@@ -16,9 +16,9 @@ import java.util.ArrayList;
 
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
-    ArrayList<Book> data;
+    ArrayList<GoogleBook> data;
 
-    public RecyclerAdapter(ArrayList<Book> data) {
+    public RecyclerAdapter(ArrayList<GoogleBook> data) {
         this.data = data;
     }
 
@@ -36,8 +36,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     public void onBindViewHolder(ViewHolder holder, int position) {
         Log.d("stock", "Bind a view for pos" + position);
         holder.bookTitle.setText(data.get(position).getBookTitle());
-        holder.bookAuthor.setText(data.get(position).getBookAuthor());
-        holder.bookYear.setText(data.get(position).getBookYear());
+        holder.bookAuthor.setText(data.get(position).getAuthors());
+        holder.bookYear.setText(data.get(position).getPublishedDate());
 
 
         //a class declared in a method (so called local or anonymous class can only access the method's local variables if they are declared final (1.8 or are effectively final)
@@ -66,6 +66,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            this.itemView = itemView;
             bookTitle = itemView.findViewById(R.id.book_title);
             bookAuthor = itemView.findViewById(R.id.book_author);
             bookYear = itemView.findViewById(R.id.book_year);

@@ -35,5 +35,4 @@ public class GoogleBook {
         this.publishedDate = publishedDate;
     }
 
-
 }

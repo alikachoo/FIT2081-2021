@@ -1,29 +1,36 @@
 package com.example.myapplication;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
-import android.os.PersistableBundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.myapplication.provider.Car;
+import com.example.myapplication.provider.CarViewModel;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
 public class RecyclerViewActivity extends AppCompatActivity {
+    public static CarViewModel mCarViewModel;
     // Week 6 RecyclerView and CardView
-    Button backBtn;
+    Button listBtn;
+    FloatingActionButton fab_back;
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
     MyW6Adapter w6Adapter;
     ArrayList<Car> dataSource = new ArrayList<>();
     Context self;
+    ConstraintLayout car_card;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,24 +43,40 @@ public class RecyclerViewActivity extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this);
 //        recyclerView.setLayoutManager(new LinearLayoutManager(this)); // context to access the current activity
         recyclerView.setLayoutManager(layoutManager);
-        w6Adapter = new MyW6Adapter();
-        w6Adapter.setData(dataSource);
 
+        w6Adapter = new MyW6Adapter(self);
+//        w6Adapter.setData(dataSource);
         recyclerView.setAdapter(w6Adapter);
 
+        mCarViewModel = new ViewModelProvider(this).get(CarViewModel.class);
+        mCarViewModel.getAllCars().observe(this, newData -> {
+            w6Adapter.setData(newData);
+            w6Adapter.notifyDataSetChanged();
+        });
+//        listBtn = findViewById(R.id.btn_list);
+//        listBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Bundle bundle = getIntent().getBundleExtra("CARS_BUNDLE");
+//                dataSource = (ArrayList<Car>) bundle.getSerializable("CARS");
+//                w6Adapter.setData(dataSource);
+//                w6Adapter.notifyDataSetChanged();
+//                Log.d("WEEK3APP", "->" + String.valueOf(dataSource.size()));
+//                Toast toastLast = Toast.makeText(self, "Here's all the cars!", Toast.LENGTH_SHORT);
+//                toastLast.show();
+//            }
+//        });
 
-
-        backBtn = findViewById(R.id.btn_back);
-        backBtn.setOnClickListener(new View.OnClickListener() {
+        fab_back = findViewById(R.id.fab_back);
+        fab_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Bundle bundle = getIntent().getBundleExtra("CARS_BUNDLE");
-                dataSource = (ArrayList<Car>) bundle.getSerializable("CARS");
-                w6Adapter.setData(dataSource);
-                w6Adapter.notifyDataSetChanged();
-                Log.d("WEEK3APP", "->" + String.valueOf(dataSource.size()));
-                Toast toastLast = Toast.makeText(self, "Here's all the cars!", Toast.LENGTH_SHORT);
-                toastLast.show();
+//                Intent intent = new Intent(self, MainActivity.class);
+//                Bundle bundle = new Bundle();
+//                bundle.putSerializable("CARS", (Serializable) dataSource);
+//                intent.putExtra("CARS_BUNDLE", bundle);
+//                startActivity(intent);
+                finish();
             }
         });
     }

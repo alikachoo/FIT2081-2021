@@ -1,0 +1,22 @@
+FIT2081 Week 7 Workshop
+------------------------
+Question 1:
+(a)
+- The role of a ViewModel Object is to manage the data for a particular UI component. These UI components could be fragments or activities which contain data-handling business logic in order to communicate with the model.
+- Repository classes contain all the code needed to communicate with the data sources. Using this, we no longer need a UI controller and ViewModel to store code that directly accesses data sources (i.e. database or web services).
+
+(b)
+- @PrimaryKey(autoGenerate=true) will make the column the primary key of the table. When the parameter autoGenerate = true, it automatically generates a value that will be used for the primary key.
+- @NonNull will ensure that the values in the column can not be null
+- @ColumnInfo specifies the name of the column in the database
+
+Question 2:
+(a)
+- LiveData is a data holder which allows a value to become observable. Observable objects can notify other objects when there are changes in their data and thus solves the worry of whether the user interface is up to date with the data within the ViewModel or not.
+
+(b) Everytime there are changes to the data in LiveData, the method .observe() invokes the callback method provided in the second parameter. To access the new updates, use 'newData'.
+
+Question 3:
+(a)
+@Query ("DELETE FROM car WHERE year<:yearInput")
+void deleteCarsWithYear(int yearInput);

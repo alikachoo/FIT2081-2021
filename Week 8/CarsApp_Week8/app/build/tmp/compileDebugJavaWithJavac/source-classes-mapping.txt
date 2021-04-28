@@ -1,0 +1,28 @@
+com/example/myapplication/provider/CarRepository.java
+ com.example.myapplication.provider.CarRepository
+com/example/myapplication/provider/CarContentProvider.java
+ com.example.myapplication.provider.CarContentProvider
+com/example/myapplication/SMSReceiver.java
+ com.example.myapplication.SMSReceiver
+com/example/myapplication/provider/CarDao.java
+ com.example.myapplication.provider.CarDao
+com/example/myapplication/provider/CarViewModel.java
+ com.example.myapplication.provider.CarViewModel
+com/example/myapplication/BuildConfig.java
+ com.example.myapplication.BuildConfig
+com/example/myapplication/RecyclerViewActivity.java
+ com.example.myapplication.RecyclerViewActivity
+ com.example.myapplication.RecyclerViewActivity$1
+com/example/myapplication/MainActivity.java
+ com.example.myapplication.MainActivity
+ com.example.myapplication.MainActivity$1
+ com.example.myapplication.MainActivity$2
+ com.example.myapplication.MainActivity$MyBroadCastReceiver
+com/example/myapplication/provider/CarDatabase.java
+ com.example.myapplication.provider.CarDatabase
+com/example/myapplication/MyW6Adapter.java
+ com.example.myapplication.MyW6Adapter
+ com.example.myapplication.MyW6Adapter$1
+ com.example.myapplication.MyW6Adapter$ViewHolder
+com/example/myapplication/provider/Car.java
+ com.example.myapplication.provider.Car

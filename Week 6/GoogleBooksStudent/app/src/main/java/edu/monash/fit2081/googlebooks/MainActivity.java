@@ -79,13 +79,13 @@ public class MainActivity extends AppCompatActivity {
                                                           dataItems.add(googleBook);
                                                       } catch (Exception e) {
                                                       }
-                                                      adapter = new RecyclerAdapter(dataItems);
-                                                      recyclerView.setAdapter(adapter);
-                                                      adapter.notifyDataSetChanged();
                                                   }
                                                   // Now: all the data items are in the array list, send it to the recycler adapter to create views.
                                                   //Create a new RecyclerAdaptor and send your data to it (hint: via the constructor)
                                                   // assign (i.e. set) the adapter to the recycler view
+                                                  adapter = new RecyclerAdapter(dataItems);
+                                                  recyclerView.setAdapter(adapter);
+//                                                  adapter.notifyDataSetChanged();
                                               } catch (Exception e) {
                                                   Log.d("stock", e.getMessage());
                                               }

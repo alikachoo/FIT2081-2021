@@ -6,8 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelStoreOwner;
 
 import android.Manifest;
 import android.content.BroadcastReceiver;
@@ -27,13 +28,15 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.myapplication.provider.Car;
+import com.example.myapplication.provider.CarViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.io.Serializable;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.StringTokenizer;
 
 public class MainActivity extends AppCompatActivity {
@@ -68,21 +71,37 @@ public class MainActivity extends AppCompatActivity {
     // List cars
     ListView listCars;
     ArrayList<String> cars;
-    ArrayList<Car> carsList;
+//    ArrayList<Car> carsList;
     ArrayAdapter<String> adapter;
+    MyW6Adapter w6Adapter;
 
     Context self;
 
-
+    // Week 7 Tasks
+    private CarViewModel mCarViewModel;
+    private int count;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         self = this;
+        ViewModelStoreOwner owner = (ViewModelStoreOwner) this;
+        LifecycleOwner lifecycleOwner = (LifecycleOwner) this;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.drawer_layout);
+        count = 0;
+        w6Adapter =new MyW6Adapter(self);
+
+        //WEEK 7
+        mCarViewModel = new ViewModelProvider(owner).get(CarViewModel.class);
+        mCarViewModel.getAllCars().observe(lifecycleOwner, newData -> {
+            w6Adapter.setData(newData);
+            w6Adapter.notifyDataSetChanged();
+//            TextView tv = findViewById(R.id.recycler_view_id);
+//            tv.setText(newData.size() + "");
+        });
 
         cars = new ArrayList<>();
-        carsList = new ArrayList<Car>();
+//        carsList = new ArrayList<Car>();
 
         listCars = findViewById(R.id.listCars);
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, cars);
@@ -113,18 +132,25 @@ public class MainActivity extends AppCompatActivity {
             Snackbar.make(view, "replace with your own action"
                     ,Snackbar.LENGTH_LONG).setAction("Action", null).show();
         }));
-
         FAB_ADD.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String res = "";
                 String makerInput = maker.getText().toString();
                 String modelInput = model.getText().toString();
+                int priceInput = Integer.valueOf(price.getText().toString());
                 res = makerInput + " | " + modelInput;
                 cars.add(res);
-                carsList.add(new Car(makerInput, modelInput));
+//                carsList.add(new Car(makerInput, modelInput));
+                count++;
+
+                Random rand = new Random();
+                Car car = new Car(makerInput, modelInput, rand.nextInt(100000), priceInput);
+                System.out.println(car);
+                mCarViewModel.insert(car);
+
                 adapter.notifyDataSetChanged();
-                Toast toast = Toast.makeText(self, "Added new car!", Toast.LENGTH_SHORT);
+                Toast toast = Toast.makeText(self, "Added new car!" + String.valueOf(count), Toast.LENGTH_SHORT);
                 toast.show();
             }
         });
@@ -138,18 +164,23 @@ public class MainActivity extends AppCompatActivity {
                             String res = "";
                             String makerInput = maker.getText().toString();
                             String modelInput = model.getText().toString();
+                            int priceInput = Integer.valueOf(price.getText().toString());
                             res = makerInput + " | " + modelInput;
                             cars.add(res);
                             adapter.notifyDataSetChanged();
                             Log.d("WEEK3APP", "stuff ->" + makerInput + " " + modelInput);
-                            carsList.add(new Car(makerInput, modelInput));
-                            Toast toast = Toast.makeText(self, "Added new car!" + String.valueOf(carsList.size()), Toast.LENGTH_SHORT);
-                            toast.show();
+//                            carsList.add(new Car(makerInput, modelInput));
+//                            Toast toast = Toast.makeText(self, "Added new car!" + String.valueOf(carsList.size()), Toast.LENGTH_SHORT);
+//                            toast.show();
+                            Random rand = new Random();
+                            Car car = new Car(makerInput, modelInput, rand.nextInt(100000), priceInput);
+                            System.out.println(car);
+                            mCarViewModel.insert(car);
                         break;
                     case R.id.remove_last_car:
                         if (cars.size() > 0) {
                             cars.remove(cars.size()-1);
-                            carsList.remove(cars.size()-1);
+//                            carsList.remove(cars.size()-1);
                             adapter.notifyDataSetChanged();
                             Toast toastLast = Toast.makeText(self, "Removed the last car!", Toast.LENGTH_SHORT);
                             toastLast.show();
@@ -157,15 +188,16 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.remove_all_cars:
                         cars.clear();
-                        carsList.clear();
+//                        carsList.clear();
                         adapter.notifyDataSetChanged();
                         Toast toastAll = Toast.makeText(self, "Removed all cars successfully!", Toast.LENGTH_SHORT);
                         toastAll.show();
+                        mCarViewModel.deleteAll();
                         break;
                     case R.id.list_all_cars:
                         Intent intent = new Intent(MainActivity.this, RecyclerViewActivity.class);
                         Bundle bundle = new Bundle();
-                        bundle.putSerializable("CARS", (Serializable) carsList);
+//                        bundle.putSerializable("CARS", (Serializable) carsList);
                         intent.putExtra("CARS_BUNDLE", bundle);
                         startActivity(intent);
                         break;
@@ -191,8 +223,8 @@ public class MainActivity extends AppCompatActivity {
         address = (EditText) findViewById(R.id.addressInput);
 
         Log.d(WEEK_3_APP, "onCreate");
-
-        Context context = getApplicationContext();
+//
+//        Context context = getApplicationContext();
 
         maker = (EditText) findViewById(R.id.makerInput);
 // Previous workshop buttons
@@ -363,6 +395,25 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.options_menu, menu);
         return true;
     }
+//
+//    public void add(View v) {
+//        count++;
+//        String car_name = "Car"+count;
+//        int price = 20000+count;
+//
+//        Car car = new Car(car_name, "X8", 90000, price);
+//
+//
+//        mCarViewModel.insert(car);
+//
+//        mCarViewModel = new ViewModelProvider(this).get(CarViewModel.class);
+//        mCarViewModel.getAllCars().observe(this, newData -> {
+//            w6Adapter.setData(newData);
+//            w6Adapter.notifyDataSetChanged();
+//            TextView tv = findViewById(R.id.recycler_view_id);
+//            tv.setText(newData.size() + "");
+//        });
+//    }
 
     class MyBroadCastReceiver extends BroadcastReceiver {
 

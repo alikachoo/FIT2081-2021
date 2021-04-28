@@ -1,24 +1,37 @@
 package com.example.myapplication;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.lang.reflect.Array;
+import com.example.myapplication.provider.Car;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class MyW6Adapter extends RecyclerView.Adapter<MyW6Adapter.ViewHolder>{
-    ArrayList<Car> data = new ArrayList<Car>();
+    List<Car> data = new ArrayList<Car>();
+    String nameStr;
+    String idStr;
+    String priceStr;
+    Context self;
 
-//    public MyW6Adapter(ArrayList<Car> _data) {
+
+    public MyW6Adapter(Context context) {
 //        data = _data;
-//    }
+        self = context;
+    }
 
-    public void setData(ArrayList<Car> _data) {this.data = _data;}
+    public void setData(List<Car> _data) {
+        this.data = _data;
+    }
 
     @NonNull
     @Override
@@ -30,8 +43,21 @@ public class MyW6Adapter extends RecyclerView.Adapter<MyW6Adapter.ViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.maker.setText(String.valueOf(data.get(position).getMaker()));
-        holder.model.setText(String.valueOf(data.get(position).getModel()));
+        nameStr = String.valueOf(data.get(position).getName());
+        idStr = String.valueOf(data.get(position).getCar_id());
+        priceStr = String.valueOf(data.get(position).getCar_price());
+        holder.name.setText(nameStr);
+        holder.id.setText(idStr);
+        holder.price.setText(priceStr);
+        holder.car_card.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String res = "Car Name:" + nameStr;
+                Toast toast = Toast.makeText(self, res, Toast.LENGTH_SHORT);
+                toast.show();
+//                RecyclerViewActivity.mCarViewModel.deleteModelCars(data.get(position).getModel());
+            }
+        });
     }
 
     @Override
@@ -40,14 +66,16 @@ public class MyW6Adapter extends RecyclerView.Adapter<MyW6Adapter.ViewHolder>{
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView maker;
-        TextView model;
+        TextView name, id, price;
+        ConstraintLayout car_card;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             // In itemView, find maker and model
-            maker = itemView.findViewById(R.id.makerCardId);
-            model = itemView.findViewById(R.id.modelCardId);
+            name = itemView.findViewById(R.id.carName);
+            id = itemView.findViewById(R.id.carId);
+            price = itemView.findViewById(R.id.carPrice);
+            car_card = itemView.findViewById(R.id.car_card);
 
 
         }

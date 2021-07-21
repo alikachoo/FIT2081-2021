@@ -3,7 +3,7 @@
 ## Description
 These folders include some of my work completed across Week 3 to Week 10 of this unit. 
 
-Some key topics and features learnt across this unit were:
+<u>Key topics and features covered in the unit</u>
 
 - Android Life cycle, Persistence, Intents and Activities
 - Drawers, Toolbars, FAB Buttons, Snackbar
@@ -12,7 +12,7 @@ Some key topics and features learnt across this unit were:
 - Using **Firebase** as cloud storage
 - Gestures and touch events (scroll, zoom, double tap, etc.)
 
-Unit Learning Objectives:
+<u>Unit Learning Objectives</u>
 
 - Perform object oriented design and coding to create, test and debug non-trivial, working mobile applications that are maintainable and use the best practices of the development platform;
 - Upload these applications to an appropriate marketplace;

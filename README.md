@@ -7,9 +7,9 @@ Some key topics and features learnt across this unit were:
 
 - Android Life cycle, Persistence, Intents and Activities
 - Drawers, Toolbars, FAB Buttons, Snackbar
-- RecyclerViews and Card Views
+- RecyclerViews, WebViews Card Views
 - Dealing with JSON objects, converting Java Objects to JSON using Gson
-- Using **Firebase** as cloud
+- Using **Firebase** as cloud storage
 - Gestures and touch events (scroll, zoom, double tap, etc.)
 
 Unit Learning Objectives:

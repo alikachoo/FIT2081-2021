@@ -1,7 +1,18 @@
-# FIT2081 Mobile Application Development
+# FIT2081 Mobile Application Development (Android)
 
 ## Description
-These folders include my work completed across Week 3 to Week 10 of this unit. I believe this has decently met its initial learning objectives. By the end of the unit, students will have the following skills:
+These folders include some of my work completed across Week 3 to Week 10 of this unit. 
+
+Some key topics and features learnt across this unit were:
+
+- Android Life cycle, Persistence, Intents and Activities
+- Drawers, Toolbars, FAB Buttons, Snackbar
+- RecyclerViews and Card Views
+- Dealing with JSON objects, converting Java Objects to JSON using Gson
+- Using **Firebase** as cloud
+- Gestures and touch events (scroll, zoom, double tap, etc.)
+
+Unit Learning Objectives:
 
 - Perform object oriented design and coding to create, test and debug non-trivial, working mobile applications that are maintainable and use the best practices of the development platform;
 - Upload these applications to an appropriate marketplace;

@@ -1,9 +1,9 @@
 # FIT2081 Mobile Application Development (Android)
 
 ## Description
-These folders include some of my work completed across Week 3 to Week 10 of this unit. 
+These folders include some of my work completed across Week 3 to Week 10 of this unit at Monash University Malaysia. 
 
-<u>Key topics and features covered in the unit</u>
+*Key topics and features covered in the unit*
 
 - Android Life cycle, Persistence, Intents and Activities
 - Drawers, Toolbars, FAB Buttons, Snackbar
@@ -12,7 +12,7 @@ These folders include some of my work completed across Week 3 to Week 10 of this
 - Using **Firebase** as cloud storage
 - Gestures and touch events (scroll, zoom, double tap, etc.)
 
-<u>Unit Learning Objectives</u>
+*Unit Learning Objectives*
 
 - Perform object oriented design and coding to create, test and debug non-trivial, working mobile applications that are maintainable and use the best practices of the development platform;
 - Upload these applications to an appropriate marketplace;

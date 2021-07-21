@@ -1,2 +1,0 @@
-include ':app'
-rootProject.name = "CarsApp_Week4_Task3"
